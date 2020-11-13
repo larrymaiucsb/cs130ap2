@@ -60,58 +60,7 @@ Dictionary::Dictionary(string fname, int tsize){
 
    
 
-/*
-  vector<int> tempHash; 
-  for(int i = 0; i < 20; i++){
-    tempHash.push_back(0);
-  }
 
-
-int tablesIncluded = 0;
-  for(size_t i = 0, numhash = 0; i <tsize;){
-    sHash[i] = Hash24();
-    sTables[i].clear();
-    int newsize = (table[i].size()-1) * (table[i].size()-1);
-
-    for(int j = 0; j < newsize; j++){
-      sTables[i].push_back("");
-    }
-
-    string str;
-    bool collisionsChecker = false;
-    bool wordsChecker = false;
-    int initHash = 0;
-    for(int k = 1; k < table[i].size(); k++){
-      wordsChecker = true;
-      str = table[i][k];
-      initHash = sHash[i].hash(str) % newsize;
-
-      if(sTables[i][initHash] != ""){
-        collisionsChecker = true;
-        k = table[i].size();
-      }
-
-      else{
-        sTables[i][initHash] = str;
-      }
-
-    }
-
-    if (collisionsChecker == true){
-      numhash++;
-    }
-    else{
-      if(wordsChecker == true && numhash < 20){
-        tempHash[numhash]++;
-        tablesIncluded++;
-      }
-
-      numhash = 0;
-      i++;
-    }
-  }
-   
-   */
    
     for (int i = 0; i < tsize; i++)
     {
@@ -166,14 +115,7 @@ int tablesIncluded = 0;
 
 
     }
-   /* 
-    double average = 0.0;
-    for(int i = 0; i < 20; i++){
-      average += (i+1) * tempHash[i];
 
-    }
-    average = average/tablesIncluded;
-  */
     pHash.dump();
     cout <<"Number of words = "<< tsize<<endl;
     cout<<"Table size = "<< tsize<<endl;
