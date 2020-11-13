@@ -18,7 +18,6 @@ class Dictionary{
             this->tsize = tsize;
 
         }
-        ~Dictionary();
 
         bool find(string word);
         void writeToFile(string fname);

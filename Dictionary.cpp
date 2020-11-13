@@ -28,36 +28,34 @@ Dictionary::Dictionary(string fname, int tsize){
     {
         number_of_lines++; 
             int index = pHash.hash(line);
-            index = pHash.hash(index);
+            //index = pHash.hash(index);
             index = index % tsize;
         
-        if (table[index].empty())
-        {   
-            vector<string> indexList;
-            table[index] = indexList;        //if empty slot, make a new vector and insert
-            indexList.push_back(line);
-        }
 
-        else
-        {
+       
+        
             table[index].push_back(line);           //makes vectors of elements in each slot usiong primary hash only
-        }
+        
     }
 
     int max_size = 0;
 
     for (int i = 0; i < tsize; i++)
     {
+        cout << i<<endl;
         int size = table[i].size();
         vector<string> tableOne = table[i];
         if (size > max_size)
         {
             max_size = size;
             counter3 = table[i];
+            cout << "51"<<endl;
         }
+        cout << "53"<<endl;
         counter2[size]++;
     }
 
+    cout << "57" << endl;
 
     for (int i = 0; i < tsize; i++)
     {
@@ -73,15 +71,16 @@ Dictionary::Dictionary(string fname, int tsize){
             vector<string> v;
             v.resize(newsize);
             bool checker = false;
+            Hash24 nH;
             while(checker == false){
                 counter++;
-                Hash24 nH;
+               nH = Hash24();
                 for(int j =0; j < table[i].size(); j++){
                     string word;
                     word = table[i][j];
                     int index = nH.hash(table[i][j]);
-                    index = nH.hash(index);
-                    index = index % tsize;
+                    //index = nH.hash(index);
+                    index = index % newsize;
                     if (v[index].empty()){   
                         v[index] = word;
                         if(j== table[i].size()-1){
@@ -120,7 +119,7 @@ Dictionary::Dictionary(string fname, int tsize){
     int sum1 = 0;
 
     for(int i = 0; i < 21; i++){
-        cout << "# of secondary hash tables trying" << i << "hash functions = " << counter1[i]<<endl;
+        cout << "# of secondary hash tables trying " << i << "hash functions = " << counter1[i]<<endl;
         sum1 += counter1[i] * i;
     }
     double average = sum1/tsize;
