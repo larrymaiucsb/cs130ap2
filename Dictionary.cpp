@@ -12,6 +12,8 @@ using namespace std;
 
 
 Dictionary::Dictionary(string fname, int tsize){
+
+   
     vector<int> counter1;
     vector<int> counter2;
     vector<string> counter3;
@@ -115,6 +117,7 @@ Dictionary::Dictionary(string fname, int tsize){
 
 
     }
+    
 
     pHash.dump();
     cout <<"Number of words = "<< tsize<<endl;
