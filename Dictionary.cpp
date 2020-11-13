@@ -71,15 +71,16 @@ Dictionary::Dictionary(string fname, int tsize){
             vector<string> v;
             v.resize(newsize);
             bool checker = false;
-            Hash24 nH;
+            
             while(checker == false){
+              cout << "76"<<endl;
                 counter++;
-               nH = Hash24();
+               Hash24 nH;
                 for(int j =0; j < table[i].size(); j++){
                     string word;
                     word = table[i][j];
                     int index = nH.hash(table[i][j]);
-                    //index = nH.hash(index);
+                    index = nH.hash(index);
                     index = index % newsize;
                     if (v[index].empty()){   
                         v[index] = word;
@@ -87,9 +88,11 @@ Dictionary::Dictionary(string fname, int tsize){
                             checker = true;
 
                         }
+                        
                     }
                     else{
-                        break;        
+                      
+                              
                     }
     
                 }
